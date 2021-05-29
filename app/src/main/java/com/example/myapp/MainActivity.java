@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_department_store) {
-            Intent intent = new Intent(this, DepartmentStoreActivity.class);
+            Intent intent = new Intent(this, LoginSQLiteActivity.class);
             startActivity(intent);
         }
     }
