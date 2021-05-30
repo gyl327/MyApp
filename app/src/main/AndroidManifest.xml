@@ -19,6 +19,7 @@
         <activity android:name=".LoginForgetActivity" />
         <activity android:name=".LoginSQLiteActivity" />
         <activity android:name=".RegisterSQLiteActivity" />
+        <activity android:name=".LaunchImproveActivity" android:theme="@style/FullScreen"/>
         <activity android:name=".DepartmentStoreActivity" android:theme="@style/AppCompatTheme" />
     </application>
 

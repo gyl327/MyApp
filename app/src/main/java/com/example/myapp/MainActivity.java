@@ -13,13 +13,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.btn_department_store).setOnClickListener(this);
+        findViewById(R.id.btn_launch_improve).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btn_department_store) {
-            Intent intent = new Intent(this, LoginSQLiteActivity.class);
+        if (v.getId() == R.id.btn_launch_improve) {
+            Intent intent = new Intent(this, LaunchImproveActivity.class);
             startActivity(intent);
         }
     }
