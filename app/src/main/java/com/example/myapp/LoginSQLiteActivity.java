@@ -32,6 +32,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
     private RadioButton rb_password; // 声明一个单选按钮对象
     private RadioButton rb_verifycode; // 声明一个单选按钮对象
     private RadioButton register;   // 声明一个单选按钮对象 注册
+    private RadioButton login;   // 声明一个单选按钮对象 登录
     private EditText et_phone; // 声明一个编辑框对象
     private TextView tv_password; // 声明一个文本视图对象
     private EditText et_password; // 声明一个编辑框对象
@@ -40,7 +41,8 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 
     private int mRequestCode = 0; // 跳转页面时的请求代码
     private boolean bRemember = false; // 是否记住密码
-    private String mPassword = "111111"; // 默认密码
+    private String mPassword; // 默认密码
+    private String mPhone;
     private String mVerifyCode; // 验证码
     private UserDBHelper mHelper; // 声明一个用户数据库的帮助器对象
 
@@ -57,6 +59,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         btn_forget = findViewById(R.id.btn_forget);
         ck_remember = findViewById(R.id.ck_remember);
         register = findViewById(R.id.register);     //注册
+        login = findViewById(R.id.login);
 
         // 给rg_login设置单选监听器
         rg_login.setOnCheckedChangeListener(new RadioListener());
@@ -135,10 +138,11 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
         // 点击了“注册按钮”
         if (v.getId() == R.id.register){
             Intent intent = new Intent(this, RegisterSQLiteActivity.class);
-//            intent.putExtra("phone", phone);
             startActivityForResult(intent, mRequestCode); // 携带意图返回上一个页面
         }
         String phone = et_phone.getText().toString();
+//        mPhone = getIntent().getStringExtra("new_phone");
+//        et_phone.setText(mPhone);
 
         // 点击了“忘记密码”按钮
         if (v.getId() == R.id.btn_forget) {
@@ -163,8 +167,9 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
                 alert.show(); // 显示提醒对话框
             }
         }
+
         // 点击了“登录”按钮
-        else if (v.getId() == R.id.btn_login) {
+        if (v.getId() == R.id.btn_login) {
             if (phone.length() < 11) { // 手机号码不足11位
                 Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
                 return;
@@ -189,9 +194,12 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        login.setChecked(true);
         if (requestCode == mRequestCode && data != null) {
             // 用户密码已改为新密码，故更新密码变量
             mPassword = data.getStringExtra("new_password");
+            mPhone = data.getStringExtra("new_phone");
+            et_phone.setText(mPhone);
         }
     }
 
@@ -229,23 +237,6 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
 
         Intent intent = new Intent(this, DepartmentStoreActivity.class);
         startActivity(intent);
-
-//        String desc = String.format("您的手机号码是%s，恭喜你通过登录验证，点击“确定”按钮返回上个页面",
-//                et_phone.getText().toString());
-////
-////        // 以下弹出提醒对话框，提示用户登录成功
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle("登录成功");
-//        builder.setMessage(desc);
-//        builder.setPositiveButton("确定返回", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                finish(); // 结束当前的活动页面
-//            }
-//        });
-//        builder.setNegativeButton("我再看看", null);
-//        AlertDialog alert = builder.create();
-//        alert.show();
     }
 
     // 焦点变更事件的处理方法，hasFocus表示当前控件是否获得焦点。
@@ -262,6 +253,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements View.OnCli
                 if (info != null) {
                     // 找到用户记录，则自动在密码框中填写该用户的密码
                     et_password.setText(info.password);
+                    mPassword = info.password;
                 }
             }
         }

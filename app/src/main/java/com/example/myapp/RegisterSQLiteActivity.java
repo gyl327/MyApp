@@ -56,6 +56,7 @@ public class RegisterSQLiteActivity extends AppCompatActivity implements View.On
             AlertDialog alert = builder.create();
             alert.show(); // 显示提醒对话框
         }
+
         // 点击了“注册”按钮
         else if (v.getId() == R.id.btn_register) {
             String phone = et_phone.getText().toString();
@@ -71,6 +72,7 @@ public class RegisterSQLiteActivity extends AppCompatActivity implements View.On
                 // 以下把修改好的新密码返回给上一个页面
                 Intent intent = new Intent(); // 创建一个新意图
                 intent.putExtra("new_password", password); // 存入新密码
+                intent.putExtra("new_phone", phone); // 存入新号码
                 setResult(Activity.RESULT_OK, intent); // 携带意图返回上一个页面
                 finish(); // 结束当前的活动页面
             }

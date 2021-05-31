@@ -176,8 +176,8 @@ public class UserDBHelper extends SQLiteOpenHelper {
         return mDB.update(TABLE_NAME, cv, condition, null);
     }
 
+    // 执行更新记录动作，该语句返回更新的记录数量
     public int update(UserInfo info) {
-        // 执行更新记录动作，该语句返回更新的记录数量
         return update(info, "rowid=" + info.rowid);
     }
 
