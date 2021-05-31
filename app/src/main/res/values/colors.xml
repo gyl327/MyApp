@@ -19,4 +19,9 @@
     <color name="blue_light">#aaaaff</color>
     <color name="tab_text_selected">#0084e8</color>
     <color name="tab_text_normal">#7597b3</color>
+
+    <color name="colorPrimary2">#F25A50</color>
+    <color name="colorPrimaryDark2">#F69364</color>
+    <color name="colorAccent2">#F69364</color>
+    <color name="transparent">#00000000</color>
 </resources>

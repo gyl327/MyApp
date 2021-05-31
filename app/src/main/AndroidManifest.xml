@@ -17,6 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".DepartmentStoreActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".EvaluateActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".GoodsOrderActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".EvaluateDetailActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".EvaluateGoodsActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".EvaluatePhotoActivity" android:theme="@style/AppCompatTheme" />
     </application>
 
 </manifest>
