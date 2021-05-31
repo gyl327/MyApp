@@ -30,7 +30,7 @@ public class LaunchWelcomeActivity extends AppCompatActivity implements  Runnabl
                 startActivity(intent1);
             }else {
                 Intent intent2 = new Intent();
-                intent2.setClass(this, LoginSQLiteActivity.class);
+                intent2.setClass(this, DepartmentStoreActivity.class);
                 startActivity(intent2);
             }
             finish();
