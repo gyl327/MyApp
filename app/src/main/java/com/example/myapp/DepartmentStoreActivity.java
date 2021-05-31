@@ -1,8 +1,11 @@
 package com.example.myapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -12,6 +15,8 @@ import com.example.myapp.adapter.DepartmentPagerAdapter;
 public class DepartmentStoreActivity extends AppCompatActivity {
     private ViewPager vp_content; // 声明一个翻页视图对象
     private RadioGroup rg_tabbar; // 声明一个单选组对象
+
+    private long mExitTime; //退出的时间
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +48,25 @@ public class DepartmentStoreActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            exit();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    public void exit(){
+        if ((System.currentTimeMillis() - mExitTime) > 2000){
+            Toast.makeText(DepartmentStoreActivity.this, "再点一次，返回桌面", Toast.LENGTH_SHORT).show();
+            mExitTime = System.currentTimeMillis();
+        }else {
+            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+            homeIntent.addCategory(Intent.CATEGORY_HOME);
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(homeIntent);
+        }
     }
 }
