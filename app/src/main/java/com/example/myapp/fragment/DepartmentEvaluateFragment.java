@@ -3,6 +3,7 @@ package com.example.myapp.fragment;
 //评价页面
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -48,7 +49,11 @@ public class DepartmentEvaluateFragment extends Fragment implements View.OnClick
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.iv_back) {
-            Toast.makeText(mContext, "您点击了back", Toast.LENGTH_LONG).show();// 关闭当前页面
+//            getActivity().onBackPressed();// 退出页面
+            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+            homeIntent.addCategory(Intent.CATEGORY_HOME);
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(homeIntent);
         }
     }
 

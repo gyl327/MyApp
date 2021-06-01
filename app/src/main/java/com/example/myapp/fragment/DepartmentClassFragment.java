@@ -1,5 +1,6 @@
 package com.example.myapp.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,16 @@ public class DepartmentClassFragment extends Fragment {
         mTitleList.add("服装");
         mTitleList.add("电器");
         mTitleList.add("食品");
+
+        tl_head.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+                homeIntent.addCategory(Intent.CATEGORY_HOME);
+                homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(homeIntent);
+            }
+        });
 
         // 从布局文件中获取名叫tab_title的标签布局
         TabLayout tab_title = mView.findViewById(R.id.tab_title);
