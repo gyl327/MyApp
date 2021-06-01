@@ -46,8 +46,8 @@ public class NewsInfo {
     private static int[] gridImageArray = {R.drawable.pic_01, R.drawable.pic_02, R.drawable.pic_03
             , R.drawable.pic_04, R.drawable.pic_05, R.drawable.pic_06, R.drawable.pic_07
             , R.drawable.pic_08, R.drawable.pic_09, R.drawable.pic_10};
-    private static String[] gridTitleArray = {"商场", "超市", "百货", "便利店",
-            "地摊", "食杂店", "饭店", "餐厅", "会所", "菜市场"};
+    private static String[] gridTitleArray = {"新品上线", "今日爆款", "百货超市", "便利小店",
+            "地摊吃货", "食杂店", "口碑生活", "土货鲜食", "菜市场", "会员中心"};
 
     public static List<NewsInfo> getDefaultGrid() {
         List<NewsInfo> gridList = new ArrayList<NewsInfo>();

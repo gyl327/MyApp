@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener;
 
 import com.example.myapp.R;
 import com.example.myapp.adapter.RecyclerStagAdapter;
@@ -22,10 +21,8 @@ import com.example.myapp.widget.SpacesDecoration;
 
 import java.util.List;
 
-//商品展示-服装页面
-
-public class ClothesFragment extends Fragment implements OnRefreshListener {
-    private static final String TAG = "ClothesFragment";
+public class LuggageFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+    private static final String TAG = "LuggageFragment";
     protected View mView; // 声明一个视图对象
     protected Context mContext; // 声明一个上下文对象
     private SwipeRefreshLayout srl_clothes; // 声明一个下拉刷新布局对象
@@ -60,7 +57,7 @@ public class ClothesFragment extends Fragment implements OnRefreshListener {
         return mView;
     }
 
-//    // 一旦在下拉刷新布局内部往下拉动页面，就触发下拉监听器的onRefresh方法
+    //    // 一旦在下拉刷新布局内部往下拉动页面，就触发下拉监听器的onRefresh方法
     public void onRefresh() {
         mHandler.postDelayed(mRefresh, 2000); // 延迟若干秒后启动刷新任务
     }
@@ -81,5 +78,4 @@ public class ClothesFragment extends Fragment implements OnRefreshListener {
             rv_clothes.scrollToPosition(0); // 让循环视图滚动到第一项所在的位置
         }
     };
-
 }

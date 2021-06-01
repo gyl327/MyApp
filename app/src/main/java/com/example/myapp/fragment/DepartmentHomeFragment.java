@@ -3,8 +3,6 @@ package com.example.myapp.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -16,12 +14,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.myapp.R;
-import com.example.myapp.adapter.MobileGridAdapter;
 import com.example.myapp.adapter.RecyclerCombineAdapter;
 import com.example.myapp.adapter.RecyclerGridAdapter;
-import com.example.myapp.bean.GoodsInfo;
+import com.example.myapp.adapter.RecyclerStagAdapter;
 import com.example.myapp.bean.NewsInfo;
 import com.example.myapp.util.Utils;
 import com.example.myapp.widget.BannerPager;
@@ -35,6 +33,7 @@ import java.util.List;
 public class DepartmentHomeFragment extends Fragment implements BannerPager.BannerClickListener {
     protected View mView; // 声明一个视图对象
     protected AppCompatActivity mActivity; // 声明一个活动对象
+//    protected Context mContext; // 声明一个上下文对象
 
     private List<Integer> getImageList() {
         ArrayList<Integer> imageList = new ArrayList<Integer>();
@@ -72,6 +71,7 @@ public class DepartmentHomeFragment extends Fragment implements BannerPager.Bann
         return mView;
     }
 
+    // 初始化广告轮播条
     private void initBanner() {
         // 从布局文件中获取名叫banner_pager的广告轮播条
         BannerPager banner = mView.findViewById(R.id.banner_pager);
@@ -90,6 +90,7 @@ public class DepartmentHomeFragment extends Fragment implements BannerPager.Bann
         Toast.makeText(mActivity, desc, Toast.LENGTH_LONG).show();
     }
 
+    // 初始化市场网格列表
     private void initGrid() {
         // 从布局文件中获取名叫rv_grid的循环视图
         RecyclerView rv_grid = mView.findViewById(R.id.rv_grid);
@@ -105,6 +106,7 @@ public class DepartmentHomeFragment extends Fragment implements BannerPager.Bann
         rv_grid.addItemDecoration(new SpacesDecoration(1)); // 设置循环视图的空白装饰
     }
 
+    // 初始化猜你喜欢的商品展示网格
     private void initCombine() {
         // 从布局文件中获取名叫rv_combine的循环视图
         RecyclerView rv_combine = mView.findViewById(R.id.rv_combine);
@@ -133,19 +135,17 @@ public class DepartmentHomeFragment extends Fragment implements BannerPager.Bann
         rv_combine.addItemDecoration(new SpacesDecoration(1));  // 设置循环视图的空白装饰
     }
 
+    // 初始化手机网格列表
     private void initPhone() {
         // 从布局文件中获取名叫rv_phone的循环视图
         RecyclerView rv_phone = mView.findViewById(R.id.rv_phone);
-        // 创建一个网格布局管理器
-        GridLayoutManager manager = new GridLayoutManager(mActivity, 3);
-        rv_phone.setLayoutManager(manager); // 设置循环视图的布局管理器
-        // 构建一个手机列表的循环适配器
-        MobileGridAdapter adapter = new MobileGridAdapter(mActivity, GoodsInfo.getDefaultList());
-        rv_phone.setAdapter(adapter); // 设置循环视图的网格适配器
-        adapter.setOnItemClickListener(adapter); // 设置网格列表的点击监听器
-        adapter.setOnItemLongClickListener(adapter); // 设置网格列表的长按监听器
+        // 创建一个瀑布流网格布局管理器
+        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL);
+        rv_phone.setLayoutManager(manager);
+        RecyclerStagAdapter adapter = new RecyclerStagAdapter(mActivity, NewsInfo.getDefaultStag());
+        rv_phone.setAdapter(adapter);
         rv_phone.setItemAnimator(new DefaultItemAnimator()); // 设置循环视图的动画效果
-        rv_phone.addItemDecoration(new SpacesDecoration(1)); // 设置循环视图的空白装饰
+        rv_phone.addItemDecoration(new SpacesDecoration(3));
     }
 
 }
