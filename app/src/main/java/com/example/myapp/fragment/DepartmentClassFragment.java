@@ -34,7 +34,7 @@ public class DepartmentClassFragment extends Fragment {
         // 从布局文件中获取名叫tl_head的工具栏
         Toolbar tl_head = mView.findViewById(R.id.tl_head);
         mActivity.setSupportActionBar(tl_head); // 使用tl_head替换系统自带的ActionBar
-        mTitleList.add("女装");
+        mTitleList.add("女装");//增加左右滑块页面
         mTitleList.add("电器");
         mTitleList.add("食品");
         mTitleList.add("洗护");
