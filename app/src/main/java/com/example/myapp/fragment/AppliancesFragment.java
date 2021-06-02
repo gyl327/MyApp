@@ -49,7 +49,9 @@ public class AppliancesFragment extends Fragment implements OnRefreshListener {
         // 创建一个垂直方向的瀑布流布局管理器
         StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, RecyclerView.VERTICAL);
         rv_clothes.setLayoutManager(manager); // 设置循环视图的布局管理器
+
         mAllList = NewsInfo.getDefaultAppi(); // 获取默认的电器信息列表
+
         // 构建一个电器列表的瀑布流适配器
         mAdapter = new RecyclerStagAdapter(mContext, mAllList);
         mAdapter.setOnItemClickListener(mAdapter); // 设置瀑布流列表的点击监听器

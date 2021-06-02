@@ -6,19 +6,13 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.myapp.fragment.AppliancesFragment;
 import com.example.myapp.fragment.ClothesFragment;
-import com.example.myapp.fragment.DigitalFragment;
 import com.example.myapp.fragment.FoodFragment;
 import com.example.myapp.fragment.ImportFragment;
-import com.example.myapp.fragment.LuggageFragment;
 import com.example.myapp.fragment.MakeFragment;
 import com.example.myapp.fragment.MenFragment;
 import com.example.myapp.fragment.MotherFragment;
-import com.example.myapp.fragment.MotionFragment;
 import com.example.myapp.fragment.OrnamentsFragment;
 import com.example.myapp.fragment.PhoneFragment;
-import com.example.myapp.fragment.ShoesFragment;
-import com.example.myapp.fragment.StoreFragment;
-import com.example.myapp.fragment.WashFragment;
 
 import java.util.List;
 
@@ -34,36 +28,24 @@ public class ClassPagerAdapter extends FragmentStateAdapter {
     // 创建指定位置的碎片Fragmen
     @Override
     public Fragment createFragment(int position) {
-        if (position == 0) { // 第一页展示服装
+        if (position == 0) { // 第一页展示女装
             return new ClothesFragment();
-        } else if (position == 1){
+        } else if (position == 1){  //电器
             return new AppliancesFragment();
-        } else if (position == 2){
+        } else if (position == 2){  //食品
             return new FoodFragment();
-        } else if (position == 3){
-            return new WashFragment();
-        } else if (position == 4){
+        }  else if (position == 3){  //母婴
             return new MotherFragment();
-        } else if (position == 5){
+        } else if (position == 4){  //美妆
             return new MakeFragment();
-        } else if (position == 6){
-            return new StoreFragment();
-        } else if (position == 7){
+        } else if (position == 5){  //饰品
             return new OrnamentsFragment();
-        } else if (position == 8){
+        } else if (position == 6){  //进口
             return new ImportFragment();
-        }else if (position == 9){
-            return new DigitalFragment();
-        } else if (position == 10){
-            return new ShoesFragment();
-        } else if (position == 11){
+        } else if (position == 7){ //手机
             return new PhoneFragment();
-        } else if (position == 12){
-            return new LuggageFragment();
-        } else if (position == 13){
+        }  else {    //男装
             return new MenFragment();
-        } else {
-            return new MotionFragment();
         }
     }
 
