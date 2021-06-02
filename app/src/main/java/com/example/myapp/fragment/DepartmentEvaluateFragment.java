@@ -49,7 +49,7 @@ public class DepartmentEvaluateFragment extends Fragment implements View.OnClick
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.iv_back) {
-//            getActivity().onBackPressed();// 退出页面
+//            Toast.makeText(mContext, "您点击了back", Toast.LENGTH_LONG).show();// 关闭当前页面
             Intent homeIntent = new Intent(Intent.ACTION_MAIN);
             homeIntent.addCategory(Intent.CATEGORY_HOME);
             homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
