@@ -37,14 +37,11 @@ public class DepartmentClassFragment extends Fragment {
         mTitleList.add("女装");
         mTitleList.add("电器");
         mTitleList.add("食品");
-
         mTitleList.add("母婴");
         mTitleList.add("美妆");
         mTitleList.add("饰品");
         mTitleList.add("进口");
-
         mTitleList.add("手机");
-
         mTitleList.add("男装");
 
 
