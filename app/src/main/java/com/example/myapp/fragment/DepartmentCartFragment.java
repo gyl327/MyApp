@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
+import com.example.myapp.DepartmentStoreActivity;
 import com.example.myapp.MainApplication;
 import com.example.myapp.R;
 import com.example.myapp.ShoppingChannelActivity;
@@ -51,23 +52,6 @@ public class DepartmentCartFragment extends Fragment implements View.OnClickList
     protected View mView; // 声明一个视图对象
     protected Context mContext; // 声明一个上下文对象
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.fragment_department_cart);
-//        TextView tv_title = findViewById(R.id.tv_title);
-//        tv_title.setText("购物车");
-//        tv_count = findViewById(R.id.tv_count);
-//        tv_total_price = findViewById(R.id.tv_total_price);
-//        ll_content = findViewById(R.id.ll_content);
-//        ll_cart = findViewById(R.id.ll_cart);
-//        ll_empty = findViewById(R.id.ll_empty);
-//        findViewById(R.id.iv_back).setOnClickListener(this);
-//        findViewById(R.id.btn_shopping_channel).setOnClickListener(this);
-//        findViewById(R.id.btn_clear).setOnClickListener(this);
-//        findViewById(R.id.btn_settle).setOnClickListener(this);
-//    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
@@ -82,7 +66,7 @@ public class DepartmentCartFragment extends Fragment implements View.OnClickList
         ll_empty = mView.findViewById(R.id.ll_empty);
 
         mView.findViewById(R.id.iv_back).setOnClickListener(this);
-        mView.findViewById(R.id.iv_back).setOnClickListener(this);
+//        mView.findViewById(R.id.iv_back).setOnClickListener(this);
         mView.findViewById(R.id.btn_shopping_channel).setOnClickListener(this);
         mView.findViewById(R.id.btn_clear).setOnClickListener(this);
         mView.findViewById(R.id.btn_settle).setOnClickListener(this);
@@ -105,30 +89,37 @@ public class DepartmentCartFragment extends Fragment implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.iv_back) { // 点击了返回图标
-//            finish(); // 关闭当前页面
-
+        // 点击了返回图标
+        if (v.getId() == R.id.iv_back) {
             //关闭页面
             Intent homeIntent = new Intent(Intent.ACTION_MAIN);
             homeIntent.addCategory(Intent.CATEGORY_HOME);
             homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(homeIntent);
 
-        } else if (v.getId() == R.id.btn_shopping_channel) { // 点击了“商场”按钮
+        }
+        // 点击了“商场”按钮
+        else if (v.getId() == R.id.btn_shopping_channel) {
             // 从购物车页面跳到商场页面
-//            Intent intent = new Intent(this, ShoppingChannelActivity.class);
             Intent intent = new Intent(mContext, ShoppingChannelActivity.class);
+
+            // 从购物车页面跳到商城主页
+//            Intent intent = new Intent(mContext, DepartmentStoreActivity.class);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // 设置启动标志
             startActivity(intent); // 跳转到手机商场页面
-        } else if (v.getId() == R.id.btn_clear) { // 点击了“清空”按钮
+        }
+        // 点击了“清空”按钮
+        else if (v.getId() == R.id.btn_clear) {
             mCartHelper.deleteAll(); // 清空购物车数据库
             MainApplication.goodsCount = 0;
             showCount(); // 显示最新的商品数量
 //            ToastUtil.show(this, "购物车已清空");
             ToastUtil.show(mContext, "购物车已清空");
 
-        } else if (v.getId() == R.id.btn_settle) { // 点击了“结算”按钮
+        }
+        // 点击了“结算”按钮
+        else if (v.getId() == R.id.btn_settle) {
 //            AlertDialog.Builder builder = new AlertDialog.Builder(this);
             AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 
@@ -291,7 +282,6 @@ public class DepartmentCartFragment extends Fragment implements View.OnClickList
             }
         }
         // 把是否首次打开写入共享参数
-//        SharedUtil.getIntance(this).writeString("first", "false");
         SharedUtil.getIntance(mContext).writeString("first", "false");
     }
 

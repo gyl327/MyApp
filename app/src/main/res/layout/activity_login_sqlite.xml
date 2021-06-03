@@ -120,7 +120,7 @@
                 android:background="@drawable/editext_selector"
                 android:gravity="left|center"
                 android:hint="请输入密码"
-                android:inputType="number"
+                android:inputType="numberPassword"
                 android:maxLength="6"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
