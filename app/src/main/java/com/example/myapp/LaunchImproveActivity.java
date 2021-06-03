@@ -23,3 +23,4 @@ public class LaunchImproveActivity extends AppCompatActivity {
         vp_launch.setCurrentItem(0); // 设置翻页视图显示第一页
     }
 }
+////ko kdidjidj
