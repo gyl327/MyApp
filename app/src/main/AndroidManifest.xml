@@ -39,6 +39,7 @@
         <activity android:name=".ShoppingDetailActivity" android:theme="@style/AppCompatTheme" />
         <activity android:name=".ShoppingChannelActivity" android:theme="@style/AppCompatTheme" />
 <!--        <activity android:name=".MainApplication" android:theme="@style/AppCompatTheme" />-->
+        <activity android:name=".PayMyorderActivity" android:theme="@style/AppCompatTheme" />
 
     </application>
 
