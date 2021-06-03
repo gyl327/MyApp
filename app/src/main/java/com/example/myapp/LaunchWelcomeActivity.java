@@ -21,9 +21,9 @@ public class LaunchWelcomeActivity extends AppCompatActivity implements  Runnabl
             SharedPreferences preferences= getSharedPreferences("count", 0); // 存在则打开它，否则创建新的Preferences
             int count = preferences.getInt("count", 0); // 取出数据
 
-            /**
-             *如果用户不是第一次使用则直接调转到显示界面,否则调转到引导界面
-             */
+
+             //如果用户不是第一次使用则直接调转到显示界面,否则调转到引导界面
+
             if (count == 0){
                 Intent intent1 = new Intent();
                 intent1.setClass(this, LaunchImproveActivity.class);
