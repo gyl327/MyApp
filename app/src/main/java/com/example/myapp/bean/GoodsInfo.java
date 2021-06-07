@@ -25,23 +25,23 @@ public class GoodsInfo {
 
     // 声明一个手机商品的名称数组
     private static String[] mNameArray = {
-            "iPhone11", "Mate30", "小米10", "OPPO Reno3", "vivo X30", "荣耀30S"
+            "连衣裙", "西装外套", "小米10", "美味锅巴", "奶粉", "面膜"
     };
     // 声明一个手机商品的描述数组
     private static String[] mDescArray = {
-            "Apple iPhone11 256GB 绿色 4G全网通手机",
-            "华为 HUAWEI Mate30 8GB+256GB 丹霞橙 5G全网通 全面屏手机",
+            "2021春夏新款碎花连衣裙女",
+            "粉色西装外套女薄款",
             "小米 MI10 8GB+128GB 钛银黑 5G手机 游戏拍照手机",
-            "OPPO Reno3 8GB+128GB 蓝色星夜 双模5G 拍照游戏智能手机",
-            "vivo X30 8GB+128GB 绯云 5G全网通 美颜拍照手机",
-            "荣耀30S 8GB+128GB 蝶羽红 5G芯片 自拍全面屏手机"
+            "大钜惠美味锅巴",
+            "婴儿配方奶粉 飞鹤奶粉",
+            "双十一爆款面膜"
     };
     // 声明一个手机商品的价格数组
-    private static float[] mPriceArray = {6299, 4999, 3999, 2999, 2998, 2399};
+    private static float[] mPriceArray = {299, 188, 3999, 20, 198, 99};
     // 声明一个手机商品的大图数组
     private static int[] mPicArray = {
-            R.drawable.iphone, R.drawable.huawei, R.drawable.xiaomi,
-            R.drawable.oppo, R.drawable.vivo, R.drawable.rongyao
+            R.drawable.women01, R.drawable.women05, R.drawable.xiaomi,
+            R.drawable.food02, R.drawable.mu02, R.drawable.mei01
     };
 
     // 获取默认的手机信息列表
