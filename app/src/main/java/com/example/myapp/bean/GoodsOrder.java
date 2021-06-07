@@ -25,10 +25,12 @@ public class GoodsOrder {
 
     // 声明一个手机商品的名称数组
     private static String[] mNameArray = {
-            "iPhone11", "Mate30", "小米10", "OPPO Reno3", "vivo X30", "荣耀30S"
+            "连衣裙", "西装外套", "小米10", "美味锅巴", "奶粉", "面膜"
     };
     // 声明一个手机商品的价格数组
-    private static float[] mPriceArray = {6299, 4999, 3999, 2999, 2998, 2399};
+    private static float[] mPriceArray = {299, 188, 3999, 20, 198, 99};
+    //声明一个商品数量的价格数组
+//    private static float[] mNumArray = {1, 2, 1, 2, 2, 1};
 
     // 获取默认的手机信息列表
     public static List<GoodsOrder> getDefaultList() {
